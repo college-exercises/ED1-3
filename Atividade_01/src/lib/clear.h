@@ -4,7 +4,8 @@
 
 #ifndef CLEAR_H
 #define CLEAR_H
-void clear()
+
+extern void clear()
 {
 #if defined(_WIN32) || defined(_WIN64)
   system("cls");

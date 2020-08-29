@@ -46,16 +46,51 @@ int *getLargerThanAverage(int *numbers, int &quantityOfNumbers, int &av)
   return treated_largers;
 }
 
+/*
+  Esta funcao recebe o tamanho da colecao
+  e salva a entrada dos inteiros digitados
+  no terminal no endereco de memoria indicado
+*/
+void requestNumbers(int *array, int array_length)
+{
+  int nextValue;
+
+  for (int i = 0; i < array_length; i++)
+  {
+    cout << "Digite o valor para a posicao " << i << " ";
+
+    cin >> nextValue;
+
+    *(array + i) = nextValue;
+  }
+};
+
 int main(void)
 {
   clear();
-
   const int quantityOfNumbers = 10;
+
+  string randomNumbers = "N";
   int *numbers;
+
+  cout << "Deseja gerar os valores aleatoriamente? (S/N) ";
+  cin >> randomNumbers;
+
+  clear();
+
+  randomNumbers = randomNumbers != "N" && randomNumbers != "S" ? "N" : randomNumbers;
 
   numbers = (int *)malloc(sizeof(int) * quantityOfNumbers);
 
-  populateRandomly(numbers, quantityOfNumbers);
+  if (randomNumbers == "N")
+  {
+    requestNumbers(numbers, quantityOfNumbers);
+    clear();
+  }
+  else
+  {
+    populateRandomly(numbers, quantityOfNumbers);
+  }
 
   // esta variavel será modificada para guardar a quantidade resultante
   int quantityOfLargers = quantityOfNumbers;

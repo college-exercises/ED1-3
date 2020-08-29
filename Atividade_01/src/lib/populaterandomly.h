@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <iostream>
 
 using namespace std;
@@ -6,7 +8,7 @@ using namespace std;
 #ifndef POPULATERANDOMLY_H
 #define POPULATERANDOMLY_H
 
-void populateRandomly(int *array, int array_length)
+extern void populateRandomly(int *array, int array_length)
 {
   // para que os resultados sejam diferentes
   srand((unsigned)time(0));
