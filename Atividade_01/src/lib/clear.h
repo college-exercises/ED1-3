@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <iostream>
+#include <stdlib.h>
 
 #ifndef CLEAR_H
 #define CLEAR_H
