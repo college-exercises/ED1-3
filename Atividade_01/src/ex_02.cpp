@@ -75,7 +75,6 @@ int main(void)
   cout << endl;
 
   printMatrix(matrixB, horizontalSize, verticalSize, "Matriz B");
-  cout << endl;
 
   bool matrixAreEquals = compareMatrices(
       matrixA,
@@ -87,6 +86,9 @@ int main(void)
   string AreDiffMessage = "As matrizes sao diferentes";
 
   cout << (matrixAreEquals ? AreEqualMessage : AreDiffMessage) << endl;
+
+  free(matrixA);
+  free(matrixB);
 
   return 0;
 }

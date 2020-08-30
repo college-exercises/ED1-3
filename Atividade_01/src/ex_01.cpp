@@ -60,7 +60,8 @@ int main(void)
 
   clear();
 
-  randomNumbers = randomNumbers != "N" && randomNumbers != "S" ? "N" : randomNumbers;
+  randomNumbers =
+      randomNumbers != "N" && randomNumbers != "S" ? "N" : randomNumbers;
 
   numbers = (int *)malloc(sizeof(int) * quantityOfNumbers);
 
@@ -96,4 +97,9 @@ int main(void)
 
     cout << "]" << endl;
   }
+
+  free(numbers);
+  free(largers);
+
+  return 0;
 }
