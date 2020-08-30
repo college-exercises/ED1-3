@@ -7,7 +7,7 @@ Atividade 01
 </h3>
 
 <p align="center">
-  <a href="#exercício-01">Exercício 01</a>
+  <a href="#exercício-01">Exercício 01</a> |
   <a href="#exercício-02">Exercício 02</a>
 </p>
 
