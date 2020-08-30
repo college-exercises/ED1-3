@@ -3,6 +3,7 @@
 #include <iostream>
 #include "./lib/clear.h"
 #include "./lib/populaterandomly.h"
+#include "./lib/requestvalues.h"
 
 using namespace std;
 
@@ -46,25 +47,6 @@ int *getLargerThanAverage(int *numbers, int &quantityOfNumbers, int &av)
   return treated_largers;
 }
 
-/*
-  Esta funcao recebe o tamanho da colecao
-  e salva a entrada dos inteiros digitados
-  no terminal no endereco de memoria indicado
-*/
-void requestNumbers(int *array, int array_length)
-{
-  int nextValue;
-
-  for (int i = 0; i < array_length; i++)
-  {
-    cout << "Digite o valor para a posicao " << i << " ";
-
-    cin >> nextValue;
-
-    *(array + i) = nextValue;
-  }
-};
-
 int main(void)
 {
   clear();
@@ -84,7 +66,7 @@ int main(void)
 
   if (randomNumbers == "N")
   {
-    requestNumbers(numbers, quantityOfNumbers);
+    requestValues(numbers, quantityOfNumbers);
     clear();
   }
   else

@@ -11,13 +11,14 @@ using namespace std;
 extern void populateRandomly(int *array, int array_length)
 {
   // para que os resultados sejam diferentes
+  // mas se "for muito rapido" vem os mesmos, analisar depois
   srand((unsigned)time(0));
 
   int randomNumber;
 
   for (int i = 0; i < array_length; i++)
   {
-    randomNumber = (rand() % 35) + 1;
+    randomNumber = (rand() % 35);
 
     *(array + i) = randomNumber;
   }
