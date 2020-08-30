@@ -20,6 +20,8 @@ Atividade 01
 
 ## Resultado
 
+<a target="blank" href="https://repl.it/@anevata/Exercicio-01#main.cpp">Resolução online</a>
+
 <p align="center">
   <img alt="Resultado exercício 01" src="./.github/images/ex_01.png" />
 </p>
@@ -35,6 +37,8 @@ Atividade 01
 **Obs.:** Codificar as funcionalidades através de funções.
 
 ## Resultado
+
+<a target="blank" href="https://repl.it/@anevata/Exercicio-02#main.cpp">Resolução online</a>
 
 <p align="center">
   <img alt="Resultado exercício 02" src="./.github/images/ex_02.png" />
