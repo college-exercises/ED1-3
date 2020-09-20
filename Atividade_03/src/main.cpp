@@ -33,9 +33,26 @@ EmployeeList *handleInsertEmployee(EmployeeList *employees)
   string name, title = "Cadastro de novo funcionário";
   double salary;
 
-  resetTitle(title);
-  cout << "Digite o prontuário do novo funcionário(número inteiro): ";
-  cin >> prontuario;
+  bool prontuarioIsAlreadyUsed = false;
+
+  do
+  {
+    resetTitle(title);
+
+    if (prontuarioIsAlreadyUsed)
+    {
+      cout << "O prontuário inserido já está em uso, tente novamente." << endl
+           << endl;
+    }
+
+    cout << "Digite o prontuário do novo funcionário(número inteiro): ";
+    cin >> prontuario;
+
+    employeeListService.find(
+        employees,
+        prontuario,
+        prontuarioIsAlreadyUsed);
+  } while (prontuarioIsAlreadyUsed);
 
   resetTitle(title);
   cout << "Digite o nome do novo funcionário: ";
