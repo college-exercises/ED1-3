@@ -50,9 +50,40 @@ EmployeeList *handleInsertEmployee(EmployeeList *employees)
   return employeeListService.insert(employees, newEmployee);
 };
 
-void handleDeleteEmployee()
+EmployeeList *handleDeleteEmployee(EmployeeList *employees)
 {
-  cout << "Handle Delete Employee" << endl;
+  string title = "Removendo empregado.";
+  int employeeProntuario;
+
+  resetTitle(title);
+
+  cout << "Informe o prontuário do empregado: ";
+
+  cin >> employeeProntuario;
+
+  resetTitle(title);
+
+  EmployeeListService employeeListService = EmployeeListService();
+
+  bool employeeWasDeleted = false;
+
+  employees = employeeListService.remove(
+      employees,
+      employeeProntuario,
+      employeeWasDeleted);
+
+  if (employeeWasDeleted)
+  {
+    cout << "O empregado foi removido com sucesso." << endl
+         << endl;
+  }
+  else
+  {
+    cout << "O empregado não foi removido, pois não foi encontrado" << endl
+         << endl;
+  }
+
+  return employees;
 };
 
 void handleFindEmployee(EmployeeList *employees)
@@ -100,6 +131,7 @@ int main(int argc, char **argv)
 {
   int option = 0;
   bool
+      json = false,
       keepContent = false,
       invalidOptionSelected = false;
 
@@ -107,20 +139,6 @@ int main(int argc, char **argv)
   EmployeeList *employees;
 
   employees = employeeListService.init();
-
-  //=======
-  Employee func_01 = Employee();
-  func_01.setProntuario(1);
-  func_01.setName("Angelo");
-  func_01.setSalary(4000);
-  employees = employeeListService.insert(employees, func_01);
-
-  Employee func_02 = Employee();
-  func_02.setProntuario(2);
-  func_02.setName("Ana");
-  func_02.setSalary(4000);
-  employees = employeeListService.insert(employees, func_02);
-  //=======
 
   do
   {
@@ -152,9 +170,10 @@ int main(int argc, char **argv)
       employees = handleInsertEmployee(employees);
       break;
 
-    case 2:
+    case 2: //=>> 🎉
+      keepContent = true;
       invalidOptionSelected = false;
-      handleDeleteEmployee();
+      employees = handleDeleteEmployee(employees);
       break;
 
     case 3: //=>> 🎉
@@ -167,7 +186,7 @@ int main(int argc, char **argv)
       clear();
       keepContent = true;
       invalidOptionSelected = false;
-      employeeListService.print(employees);
+      employeeListService.print(employees, json);
 
       break;
 

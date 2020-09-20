@@ -90,6 +90,44 @@ public:
 
     return auxiliaryList;
   }
+
+  static EmployeeList *remove(EmployeeList *employees, int prontuario, bool &employeeWasDeleted)
+  {
+    EmployeeList
+        *previousPointer = NULL,
+        *auxiliaryList;
+
+    auxiliaryList = employees;
+
+    while (
+        auxiliaryList != NULL &&
+        auxiliaryList->data.getProntuario() != prontuario)
+    {
+      previousPointer = auxiliaryList;
+      auxiliaryList = auxiliaryList->next;
+    }
+
+    if (auxiliaryList == NULL) // Não encontrado
+    {
+      employeeWasDeleted = false;
+      return employees;
+    }
+
+    if (previousPointer == NULL) // Era o primeiro item
+    {
+      employees = auxiliaryList->next;
+    }
+    else // Estava em qualquer outra posição
+    {
+      previousPointer->next = auxiliaryList->next;
+    }
+
+    free(auxiliaryList);
+
+    employeeWasDeleted = true;
+
+    return employees;
+  }
 };
 
 #endif
