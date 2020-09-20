@@ -55,9 +55,45 @@ void handleDeleteEmployee()
   cout << "Handle Delete Employee" << endl;
 };
 
-void handleFindEmployee()
+void handleFindEmployee(EmployeeList *employees)
 {
-  cout << "Handle Find Employee" << endl;
+  string title = "Procurando empregado.";
+  int employeeProntuario;
+
+  resetTitle(title);
+
+  cout << "Informe o prontuário do empregado: ";
+
+  cin >> employeeProntuario;
+
+  resetTitle(title);
+
+  EmployeeListService employeeListService = EmployeeListService();
+  EmployeeList *employeePointer;
+
+  bool employeeWasFound = false;
+
+  employeePointer = employeeListService.find(
+      employees,
+      employeeProntuario,
+      employeeWasFound);
+
+  if (!employeeWasFound)
+  {
+    cout << "Empregado não encontrado." << endl
+         << endl;
+  }
+  else
+  {
+    cout << "Empregado encontrado." << endl
+         << endl;
+
+    cout << "Prontuário: " << employeePointer->data.getProntuario() << endl;
+    cout << "Nome: " << employeePointer->data.getName() << endl;
+    cout << "Salário: " << employeePointer->data.getSalary() << endl;
+    cout << "------------------------Fim" << endl
+         << endl;
+  }
 };
 
 int main(int argc, char **argv)
@@ -121,9 +157,10 @@ int main(int argc, char **argv)
       handleDeleteEmployee();
       break;
 
-    case 3:
+    case 3: //=>> 🎉
+      keepContent = true;
       invalidOptionSelected = false;
-      handleFindEmployee();
+      handleFindEmployee(employees);
       break;
 
     case 4: //=>> 🎉

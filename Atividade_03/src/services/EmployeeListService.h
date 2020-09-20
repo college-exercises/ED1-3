@@ -72,6 +72,24 @@ public:
     cout << "------------------------ Fim" << endl
          << endl;
   }
+
+  static EmployeeList *find(EmployeeList *employees, int prontuario, bool &employeeWasFound)
+  {
+    EmployeeList *auxiliaryList;
+
+    auxiliaryList = employees;
+
+    while (
+        auxiliaryList != NULL &&
+        auxiliaryList->data.getProntuario() != prontuario)
+    {
+      auxiliaryList = auxiliaryList->next;
+    }
+
+    employeeWasFound = !(auxiliaryList == NULL);
+
+    return auxiliaryList;
+  }
 };
 
 #endif
