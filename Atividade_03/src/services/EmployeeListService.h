@@ -32,6 +32,7 @@ public:
 
   static void print(EmployeeList *employees, bool json = true)
   {
+    double sumOfSalaries = 0;
     EmployeeList *auxiliaryList;
 
     auxiliaryList = employees;
@@ -65,9 +66,14 @@ public:
         cout << "Salário: " << auxiliaryList->data.getSalary() << endl;
         cout << endl;
 
+        sumOfSalaries += auxiliaryList->data.getSalary();
+
         auxiliaryList = auxiliaryList->next;
       }
     }
+
+    cout << "Somatória dos salários: " << sumOfSalaries << endl
+         << endl;
 
     cout << "------------------------ Fim" << endl
          << endl;
