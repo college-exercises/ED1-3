@@ -45,5 +45,5 @@ Elabore um programa que permita administrar uma lista de funcionários e, atrav�
 <!-- <a target="blank" href="https://repl.it/@anevata/Atividade-02#main.cpp">Resolução online</a> -->
 
 <p align="center">
-  <img alt="Resolução" src="./.github/images/main.png" />
+  <img alt="Resolução" src="./.github/images/preview.gif" />
 </p>
