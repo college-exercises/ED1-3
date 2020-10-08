@@ -13,10 +13,11 @@ Implementar um sistema simples de atendimento com a oferta de 3 opções atravé
 0. Sair
 1. Gerar senha
 2. Realizar atendimento
-A opção 1 deverá incrementar o controle de senhas,
+
+A **opção 1** deverá incrementar o controle de senhas,
 gerando e enfileirando a senha gerada na fila "senhasGeradas"
 
-A opção 2 deverá consumir a senha "da vez",
+A **opção 2** deverá consumir a senha "da vez",
 exibindo-a na tela e enfileirando-a na fila "senhasAtendidas".
 
 Sempre que o seletor for exibido,
