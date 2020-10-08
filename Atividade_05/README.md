@@ -8,13 +8,21 @@ Atividade 04
 
 # Proposta
 
-Elabore um programa que permita digitar 30 números inteiros.
+Implementar um sistema simples de atendimento com a oferta de 3 opções através de um seletor:
 
-Garantir que cada número digitado seja maior do que o anterior,
-mantendo a ordem crescente da digitação.
-Após digitado, cada número deverá ser empilhado em uma estrutura respectiva,
-de acordo com o fato dele ser par ou ímpar.
-Finalizada a digitação dos 30 números, os valores deverão ser desempilhados e mostrados na tela,
-garantindo uma sequência decrescente.
+0. Sair
+1. Gerar senha
+2. Realizar atendimento
+A opção 1 deverá incrementar o controle de senhas,
+gerando e enfileirando a senha gerada na fila "senhasGeradas"
 
-**Obs**: Desenvolver essa solução implementando as pilhas em forma de lista encadeada e de vetor.
+A opção 2 deverá consumir a senha "da vez",
+exibindo-a na tela e enfileirando-a na fila "senhasAtendidas".
+
+Sempre que o seletor for exibido,
+informar a quantidade de senhas ainda aguardando atendimento.
+
+O programa só poderá ser encerrado quando a fila "senhasGeradas" estiver vazia.
+Ao encerrar, informar a quantidade de senhas atendidas.
+
+

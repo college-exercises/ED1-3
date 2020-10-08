@@ -27,14 +27,24 @@ public:
   }
 
   // 🎉
-  void add(Queue *queue, int newItem)
+  void add(Queue *queue, bool usePassword = false, int password = 0)
   {
     Knot *newKnot = new Knot;
 
-    newKnot->data = newItem;
+    bool queueIsEmpty = isEmpty(queue);
+
+    if (queueIsEmpty || usePassword)
+    {
+      newKnot->data = usePassword ? password : 1;
+    }
+    else
+    {
+      newKnot->data = queue->end->data + 1;
+    }
+
     newKnot->next = NULL;
 
-    if (isEmpty(queue))
+    if (queueIsEmpty)
     {
       queue->begin = newKnot;
     }
