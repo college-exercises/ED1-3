@@ -105,8 +105,8 @@ public:
 
     auxiliaryList = this->benchmarks;
 
-    cout << "Strategy: Elapsed time" << endl
-         << endl;
+    // cout << "Strategy: Elapsed time" << endl
+    //      << endl;
 
     while (auxiliaryList != NULL)
     {
