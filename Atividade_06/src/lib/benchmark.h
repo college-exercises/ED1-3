@@ -105,12 +105,10 @@ public:
 
     auxiliaryList = this->benchmarks;
 
-    // cout << "Strategy: Elapsed time" << endl
-    //      << endl;
-
     while (auxiliaryList != NULL)
     {
-      cout << auxiliaryList->key << ": " << duration_cast<microseconds>(auxiliaryList->time_stamp_array[1] - auxiliaryList->time_stamp_array[0]).count() << "µs" << endl;
+      //µs - microseconds
+      cout << auxiliaryList->key << ": " << duration_cast<nanoseconds>(auxiliaryList->time_stamp_array[1] - auxiliaryList->time_stamp_array[0]).count() << "ns" << endl;
       auxiliaryList = auxiliaryList->next;
     }
   }

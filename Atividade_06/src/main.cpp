@@ -14,21 +14,25 @@ void print(int values[], int length)
   }
 }
 
-void insertion_sort(int values[], int length)
+void insertion_sort(int values[], int n)
 {
-  if (length <= 1)
+  if (n <= 1)
   {
     return;
   }
 
-  insertion_sort(values, length - 1);
+  insertion_sort(values, n - 1);
 
-  if (values[length] < values[length - 1])
+  int last = values[n - 1];
+  int i = n - 2;
+
+  while (last < values[i] && i >= 0)
   {
-    /* code */
+    values[i + 1] = values[i];
+    i--;
   }
 
-  cout << "Length: "<< length<< " - [length]: "<<  values[length] << " - [length -1]: " << values[length - 1] << endl;
+  values[i + 1] = last;
 }
 
 int main(int argc, char **argv)
@@ -38,13 +42,13 @@ int main(int argc, char **argv)
 
   Benchmark benchmark = Benchmark();
 
-  // benchmark.start_benchmark("insertion_sort");
+  benchmark.start_benchmark("insertion_sort");
   insertion_sort(values, num_of_elements);
-  // benchmark.stop_benchmark("insertion_sort");
+  benchmark.stop_benchmark("insertion_sort");
 
   // print(values, num_of_elements);
 
-  // benchmark.show_results();
+  benchmark.show_results();
 
   return 0;
 }
